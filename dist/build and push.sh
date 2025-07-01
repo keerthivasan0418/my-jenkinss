@@ -8,7 +8,8 @@ echo "Logging into Docker Hub..."
 docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"  
 
 echo "Building Docker image..."
-docker build -t $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG .
+docker build -t $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG -f dist/assets/Dockerfile .
+
 
 docker tag $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG $DOCKER_USERNAME/$IMAGE_NAME:latest
 
